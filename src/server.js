@@ -25,7 +25,7 @@ export const setupServer = () => {
   app.get('/', (req, res) => {
     res.status(200).json({
       status: 200,
-      message: 'Hello, World!',
+      message: 'Hello!',
     });
   });
 
@@ -35,6 +35,7 @@ export const setupServer = () => {
       res.status(200).json({
         status: 200,
         message: 'Successfully found contacts!',
+        total: contacts.length,
         data: contacts,
       });
     } catch (err) {
