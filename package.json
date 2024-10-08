@@ -3,10 +3,24 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint src/**/*.js",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "ALLA_HANOL <ganol2014@gmail.com>",
   "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.12.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.1",
+    "helmet": "^8.0.0",
+    "mongoose": "^8.7.0",
+    "nodemon": "^3.1.7",
+    "pino-http": "^10.3.0"
+  },
   "description": ""
 }
