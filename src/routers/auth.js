@@ -8,6 +8,7 @@ import {
   registerUserController,
 } from '../controllers/auth.js';
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
+
 const router = Router();
 router.post(
   '/register',
