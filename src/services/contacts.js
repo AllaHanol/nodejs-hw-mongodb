@@ -8,7 +8,6 @@ export const getAllContacts = async ({
   sortOrder = SORT_ORDER.ASC,
   sortBy = '_id',
   filter = {},
-  contactType = '',
   userId,
 }) => {
   const limit = perPage;
