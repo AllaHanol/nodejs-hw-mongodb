@@ -1,5 +1,5 @@
 import express from 'express';
-// import pino from 'pino-http';
+
 import cookieParser from 'cookie-parser';
 
 import cors from 'cors';
@@ -24,14 +24,6 @@ export const setupServer = () => {
   );
   app.use(cors());
   app.use(cookieParser());
-
-  // app.use(
-  //   pino({
-  //     transport: {
-  //       target: 'pino-pretty',
-  //     },
-  //   }),
-  // );
 
   app.get('/', (req, res) => {
     res.json({
