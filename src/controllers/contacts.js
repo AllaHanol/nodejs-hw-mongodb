@@ -11,9 +11,11 @@ import { parseSortParams } from '../utils/parseSortParams.js';
 import { parseFilterParams } from '../utils/parseFilterParams.js';
 
 export const getAllContactsController = async (req, res, next) => {
+  const { _id: userId } = req.user;
   const { page, perPage } = parsePaginationParams(req.query);
   const { sortBy, sortOrder } = parseSortParams(req.query);
-  const filter = parseFilterParams(req.query);
+  const filter = { ...parseFilterParams(req.query), userId };
+
   const contacts = await getAllContacts({
     page,
     perPage,
@@ -28,8 +30,9 @@ export const getAllContactsController = async (req, res, next) => {
   });
 };
 export const getContactByIdController = async (req, res) => {
+  const { _id: userId } = req.user;
   const { contactId } = req.params;
-  const contact = await getContactById(contactId);
+  const contact = await getContactById(contactId, userId);
 
   if (!contact) {
     throw httpError(404, 'Contact not found');
@@ -50,8 +53,12 @@ export const createContactController = async (req, res) => {
   });
 };
 export const upsertContactController = async (req, res, next) => {
+  const { _id: userId } = req.user;
   const { contactId } = req.params;
-  const result = await updateContact(contactId, req.body, { upsert: true });
+
+  const result = await updateContact(contactId, userId, req.body, {
+    upsert: true,
+  });
   if (!result) {
     throw httpError(404, 'Contact not found');
   }
