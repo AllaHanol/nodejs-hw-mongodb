@@ -1,4 +1,4 @@
-import { ContactsCollection } from '../db/modules/contacts.js';
+import { ContactsCollection } from '../db/models/contacts.js';
 import { calculatePaginationData } from '../utils/calculatePaginationData.js';
 import { SORT_ORDER } from '../constants/constants.js';
 
@@ -21,6 +21,9 @@ export const getAllContacts = async ({
     contactsQuery.where('isFavourite').equals(filter.isFavourite);
   }
 
+  // const contactsCount = await ContactsCollection.find()
+  //   .merge(contactsQuery)
+  //   .countDocuments();
   const [contactsCount, contacts] = await Promise.all([
     contactsQuery.clone().countDocuments(),
     contactsQuery
@@ -57,10 +60,7 @@ export const updateContact = async (
   options = {},
 ) => {
   const rawResult = await ContactsCollection.findOneAndUpdate(
-    {
-      userId,
-      _id: contactId,
-    },
+    { userId, _id: contactId },
     payload,
     { new: true, includeResultMetadata: true, ...options },
   );
