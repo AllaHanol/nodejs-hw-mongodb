@@ -19,8 +19,8 @@
   ],
   "tags": [
     {
-      "name": "Contacts",
-      "description": "Operations about contacts."
+      "name": "Phonebook",
+      "description": "Operations about contacts in phonebook."
     },
     {
       "name": "Auth",
@@ -319,7 +319,7 @@
                     },
                     "message": {
                       "type": "string",
-                      "example": "Successfully found contact with id 65ca67e7ae7f10c88b598384!"
+                      "example": "Successfully found contact with id 65ca67e7ae7f10c88b597654!"
                     },
                     "data": {
                       "type": "object",
@@ -424,7 +424,7 @@
                     },
                     "message": {
                       "type": "string",
-                      "example": "Successfully created a student!"
+                      "example": "Successfully created a contact!"
                     },
                     "data": {
                       "type": "object",
@@ -482,7 +482,7 @@
                     },
                     "message": {
                       "type": "string",
-                      "example": "Successfully found contact with id 65ca67e7ae7f10c88b598384!"
+                      "example": "Successfully found contact with id 65ca67e7ae7f10c88b597654!"
                     },
                     "data": {
                       "type": "object",
