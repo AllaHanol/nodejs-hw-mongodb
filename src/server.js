@@ -10,6 +10,7 @@ import router from './routers/index.js';
 
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
+import { UPLOAD_DIR } from './constants/constants.js';
 
 const PORT = Number(env('PORT', '3000'));
 
@@ -39,4 +40,5 @@ export const setupServer = () => {
     console.log(`Server is running on port ${PORT}`);
     console.log(`Time:${new Date().toLocaleString()}`);
   });
+  app.use('/uploads', express.static(UPLOAD_DIR));
 };
