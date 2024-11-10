@@ -7,13 +7,17 @@
   "scripts": {
     "lint": "eslint src/**/*.js",
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "build": "npm run build-docs",
+    "build-docs": "redocly bundle --ext json -o docs/swagger.json",
+    "preview-docs": "redocly preview-docs"
   },
   "keywords": [],
   "author": "ALLA_HANOL <ganol2014@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "@eslint/js": "^9.12.0"
+    "@eslint/js": "^9.12.0",
+    "@redocly/cli": "^1.25.11"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

@@ -1,0 +1,34 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Phonebook app
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  description: This is a documentation of Phonebook app
+tags:
+  - name: Phonebook
+    description: Operations about contacts in phonebook.
+  - name: Auth
+    description: Auth operations.
+servers:
+  - url: http://localhost:3000
+  - url: https://nodejs-hw-mongodb-kaj8.onrender.com
+paths:
+  /contacts:
+    get:
+      $ref: '../src/swagger/paths/contacts/get.yaml'
+    post:
+      $ref: '../src/swagger/paths/contacts/post.yaml'
+  /contacts/{id}:
+    get:
+      $ref: '../src/swagger/paths/contacts/{id}/get.yaml'
+    patch:
+      $ref: '../src/swagger/paths/contacts/{id}/patch.yaml'
+    delete:
+      $ref: '../src/swagger/paths/contacts/{id}/delete.yaml'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
