@@ -1,13 +1,8 @@
 import express from 'express';
-
-import cookieParser from 'cookie-parser';
-
-import cors from 'cors';
-
-import { env } from './utils/env.js';
-
 import router from './routers/index.js';
-
+import { env } from './utils/env.js';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { UPLOAD_DIR } from './constants/constants.js';
