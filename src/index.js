@@ -9,4 +9,4 @@ const bootstrap = async () => {
   await createDirIfNotExists(UPLOAD_DIR);
   setupServer();
 };
-bootstrap();
+void bootstrap();
