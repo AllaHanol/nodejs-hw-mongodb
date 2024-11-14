@@ -137,6 +137,5 @@ export const resetPassword = async (password, token) => {
     ) {
       throw createHttpError(401, 'Token is expired or invalid.');
     }
-    throw error;
   }
 };
